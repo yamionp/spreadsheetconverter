@@ -16,10 +16,15 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: views
       run: |
-        curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-        poetry install
+        ls -al
+    - name: Install
+      uses: abatilo/actions-poetry@v1.5.0
+      with:
+        python_version: 3.8.0
+        poetry_version: 1.0.3
+        args: install
     - name: Lint with flake8
       run: |
         pip install flake8
