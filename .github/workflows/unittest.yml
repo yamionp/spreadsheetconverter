@@ -22,7 +22,6 @@ jobs:
     - name: Install
       uses: abatilo/actions-poetry@v1.5.0
       with:
-        python_version: 3.8.0
         poetry_version: 1.0.3
         args: install
     - name: Lint with flake8
@@ -35,4 +34,4 @@ jobs:
     - name: Test with pytest
       run: |
         cd src
-        poetry run python -m unittest discover ../tests
+        python -m unittest discover ../tests
