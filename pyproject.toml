@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "spreadsheetconverter"
+version = "0.1.0"
+description = "convert other format from any spreadsheet formats."
+readme = "README.rst"
+authors = ["Yugo Shimizu <yami@crimsondream.jp>"]
+license = "MIT"
+
+[tool.poetry.scripts]
+ssconvert = 'spreadsheetconverter.scripts.convert:main'
+
+[tool.poetry.dependencies]
+python = "^3.6"
+PyYAML = "^5.3"
+pytz = "^2019.3"
+python-dateutil = "^2.8.1"
+xlrd = "^1.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=1.0.3"]
+build-backend = "poetry.masonry.api"

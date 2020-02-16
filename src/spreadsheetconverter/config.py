@@ -147,9 +147,10 @@ class Config(object):
             try:
                 _data.append(self.convert_column(row))
             except ValueError as e:
+                # データ起因のエラーは表示する
                 print('Error row: [{}] {}'.format(
                     ':'.join([six.text_type(v) for v in row]),
-                    e.message
+                    e
                 ))
                 raise
 
@@ -203,13 +204,13 @@ YAML_CACHE = {}
 
 
 class YamlConfig(Config):
-    def __init__(self, yaml_path, target_fields=None):
+    def __init__(self, yaml_path, target_fields=None, **kwargs):
         abs_yaml_path = search_path(
             yaml_path,
             path_env='SSC_YAML_SEARCH_PATH',
             recursive_env='SSC_YAML_SEARCH_RECURSIVE')
-        f = codecs.open(abs_yaml_path, 'r', 'utf8').read()
-        rules = yaml.load(f)
+        with codecs.open(abs_yaml_path, 'r', 'utf8') as f:
+            rules = yaml.load(f.read(), Loader=yaml.FullLoader)
 
         super(YamlConfig, self).__init__(rules, target_fields=target_fields)
 
