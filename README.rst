@@ -2,6 +2,8 @@
 SpreadsheetConverter
 ====================
 
+.. image:: https://github.com/yamionp/spreadsheetconverter/workflows/Python%20package/badge.svg
+   :alt: ci status
 
 .. contents::
 ..
