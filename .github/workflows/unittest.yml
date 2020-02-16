@@ -16,14 +16,10 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
-    - name: views
+    - name: Install dependencies
       run: |
-        ls -al
-    - name: Install
-      uses: abatilo/actions-poetry@v1.5.0
-      with:
-        poetry_version: 1.0.3
-        args: install
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     - name: Lint with flake8
       run: |
         pip install flake8
