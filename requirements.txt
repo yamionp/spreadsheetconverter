@@ -1,4 +1,4 @@
-PyYAML==5.1
+PyYAML==5.4
 python-dateutil==2.2
 pytz==2014.4
 six==1.7.3
